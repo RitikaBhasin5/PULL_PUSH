@@ -1,0 +1,43 @@
+How to Pull (Clone) a Project from GitHub to Eclipse/STS
+🔹 Step 1: Copy the GitHub Repository URL
+Go to the GitHub repository page
+Click the green "Code" button
+Copy the HTTPS URL (e.g., https://github.com/username/repo-name.git)
+
+🔹 Step 2: Open Eclipse or STS
+These steps are the same in both Eclipse and Spring Tool Suite.
+🔹 Step 3: Clone the Repository
+Option 1: From Welcome Screen
+Click on “Clone a Git repository”
+Option 2: From Menu
+Go to: File → Import
+Choose: Git → Projects from Git → Click Next
+
+🔹 Step 4: Select Repository Source
+Choose Clone URI → Click Next
+
+🔹 Step 5: Paste GitHub Repo URL
+Paste the HTTPS URL you copied from GitHub
+Eclipse will auto-fill the rest:
+Host: github.com
+Protocol: https
+If it’s a private repo, enter your GitHub username and Personal Access Token as the password
+Click Next
+
+🔹 Step 6: Choose Branches
+
+Leave it as main (or master) if unsure
+Click Next
+
+🔹 Step 7: Choose Local Directory
+Choose where on your PC to save the project
+Leave default or set your desired folder
+Click Next
+
+🔹 Step 8: Import the Project
+
+Choose:
+Import existing Eclipse projects (if it’s an Eclipse project)
+OR Import as general project if you're not sure
+Click Next, then Finish
+
