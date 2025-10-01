@@ -1,0 +1,135 @@
+1. What is Git and why do we use it in software development?
+Answer:
+Git is a distributed version control system used to track changes in source code. It allows multiple developers to collaborate on a codebase, manage versions, and roll back 
+to previous versions when needed. It’s fast, supports branching and merging, and works both online and offline.
+
+2. How is GitHub different from Git?
+Answer:
+Git is the tool used for version control.
+GitHub is a hosting service for Git repositories that adds collaboration features like pull requests, issue tracking, CI/CD, and code review.
+
+3. What is the typical Git workflow you follow in a team project?
+Answer:
+1. Clone the repository
+2. Create a new branch for your task/feature
+3. Make changes and test locally
+4. Stage and commit the changes
+5. Push your branch to GitHub
+6. Create a pull request (PR) for review
+7. Once approved, merge PR into main branch
+8. Pull latest changes to stay updated
+
+4. What is the difference between git pull and git fetch?
+Answer:
+git fetch downloads updates from the remote but does not merge them.
+git pull does a fetch and then a merge into your current branch.
+Use git fetch when you want to review changes before merging.
+
+5. How do you resolve a merge conflict in Git?
+Answer:
+Git marks the conflicting files with conflict markers (<<<<<<<, =======, >>>>>>>)
+Open and manually edit the file to resolve the conflict
+Stage the resolved file:
+git add <filename>
+Commit the resolution:
+git commit
+
+6. What is a .gitignore file? What would you typically put in it in a Java project?
+Answer:
+A .gitignore file tells Git which files/folders to ignore.
+For a Java/Maven/Spring Boot project:
+/target/
+*.log
+*.class
+/.idea/
+/*.iml
+.DS_Store
+
+7. How do you clone a GitHub repo into Eclipse or Spring Tool Suite (STS)?
+Answer:
+File → Import → Git → Projects from Git → Clone URI
+Paste the GitHub repository URL
+Choose branch and destination
+Import as existing Maven/Gradle project
+
+8. What is a pull request (PR), and what’s your process for creating one?
+Answer:
+A pull request is a way to propose changes from one branch (usually a feature branch) into another (like main).
+Steps:
+Push your feature branch to GitHub
+Go to the repo → Click “Compare & Pull Request”
+Add title and description
+Request review from team members
+After approval, merge it into the main branch
+
+9. What is the difference between git merge and git rebase?
+Feature	git merge	git rebase
+History	Preserves full history	Rewrites history (linear)
+Merge commit	Creates one	No merge commit
+Use case	Team collaboration	Cleaner history for solo work
+
+10. What happens if you git push without committing?
+Answer:
+Nothing happens — Git only pushes committed changes. If you haven’t committed, there's nothing to push.
+
+11. Have you ever used git stash? When and why?
+Answer:
+Yes. I use git stash to temporarily save my uncommitted changes when I need to:
+Switch branches
+Pull new changes
+Test something quickly
+git stash       # Saves changes
+git stash pop   # Applies them back
+
+12. How do you handle version control for a Java project with multiple modules?
+Answer:
+Use a monorepo with clearly separated modules (via Maven or Gradle)
+Use .gitignore to avoid tracking target/ and other build artifacts
+Tag releases using git tag to mark version points (e.g., v1.0, v1.1)
+
+13. How do you track who made what change in Git?
+Answer:
+Use git log to view commit history:
+git log --oneline
+Use git blame <filename> to see line-by-line authorship
+
+14. What is the HEAD in Git?
+Answer:
+HEAD is a pointer to the current branch and commit you’re working on. When you make a new commit, HEAD moves to point to that new commit.
+
+15. Have you used Git in CI/CD pipelines? If yes, how?
+Answer:
+Yes. In CI/CD pipelines:
+Git triggers builds using tools like GitHub Actions, Jenkins, or GitLab CI
+Example: When a PR is created or code is pushed, it runs:
+Unit tests
+Lint checks
+Deployment steps (e.g., build and deploy a Spring Boot app to dev environment)
+
+
+Bonus: Scenario-Based Questions
+⚠️ Scenario 1: You pulled latest changes and now your local project won’t build. What do you do?
+Answer:
+Run mvn clean install or mvn validate to check dependencies
+Check if .classpath or .project was overwritten
+Use git log or git diff to identify what changed
+Coordinate with team if something was broken in recent commits
+
+⚠️ Scenario 2: You committed sensitive data (like a password). What now?
+Answer:
+Remove it immediately and change the password
+Use:
+git reset --soft HEAD~1
+git reset HEAD <file>
+git checkout -- <file>
+git commit
+If already pushed, you may need to force-push (after team coordination) or use GitHub's BFG tool
+
+⚠️ Scenario 3: Your teammate force-pushed to main and your local branch is now out of sync. What do you do?
+Answer:
+Fetch latest changes:
+git fetch origin
+Reset your local main to match remote:
+git reset --hard origin/main
+⚠️ Warning: This will discard any local changes
+
