@@ -1,0 +1,45 @@
+Push Project to GitHub from Eclipse/STS
+
+1. Create a GitHub Repository
+Go to https://github.com
+Click "New" repository
+Name it (e.g., my-spring-boot-app)
+Keep it empty (don’t add README, .gitignore, or license)
+Click Create Repository
+You’ll be given a repository URL like:
+https://github.com/yourusername/my-spring-boot-app.git
+
+2. Initialize Git in Eclipse/STS
+a. Right-click your project > Team > Share Project
+b. Select Git, then click Next
+c. Click Create... to make a new local Git repository
+Choose a folder to create the .git directory (default is fine — inside your project)
+Click Finish
+d. Click Finish again to share the project with Git
+Now your project is under Git version control.
+
+3. Commit Your Project
+a. Right-click your project > Team > Commit
+b. In the Git Staging view:
+Drag files from Unstaged Changes to Staged Changes
+Enter a commit message like Initial commit
+Click Commit
+
+4. Add Remote GitHub Repository
+a. Right-click your project > Team > Remote > Push
+b. In the Push URI field, paste your GitHub repo URL:
+Example:
+https://github.com/yourusername/my-spring-boot-app.git
+Click Next
+
+5. Set Branch and Push
+a. On the Branch Selection screen:
+Under Source ref, choose refs/heads/master or main (whichever exists)
+Under Destination ref, enter:
+refs/heads/main (GitHub default is usually main)
+Click Add Spec, then click Next
+
+6. Authenticate and Push
+Enter your GitHub username and Personal Access Token (not your password if using HTTPS).
+Click Finish
+
